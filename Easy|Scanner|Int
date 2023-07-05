@@ -1,0 +1,14 @@
+package GitHub;
+
+import java.util.Scanner;
+
+public class Alfa {
+    public static void main(String[] args) {
+        Scanner scanKey = new Scanner(System.in);
+        System.out.println("Enter int x: ");
+        int x = scanKey.nextInt();
+        System.out.println("[" + x + "]");
+       
+    }
+}
+//Script Easy: /Scanner /Int /System.out.println();
