@@ -1,0 +1,15 @@
+package GitHub;
+
+import java.util.Scanner;
+
+public class Alfa {
+    public static void main(String[] args) {
+        Scanner scanKey = new Scanner(System.in);
+        System.out.println("Enter int x: Min |-1| Max |100|");
+        int x = scanKey.nextInt();
+        if (x > 100 || x < -1) System.out.println("Bug =(");
+        else System.out.println("[" + x + "]");
+
+    }
+}
+//Script Easy: /Scanner /Int /If|Else /System.out.println();
