@@ -1,0 +1,23 @@
+package GitHub;
+
+import java.util.Scanner;
+
+public class Alfa {
+    public static void main(String[] args) {
+        Scanner scanSize = new Scanner(System.in);
+        System.out.println("Enter int size of Arrays: Min|3| Max|100|");
+        int size = scanSize.nextInt();
+        if (size > 100 || size < 3){
+            System.out.println("Bug =(");
+            return;
+        }
+        System.out.println("Result: ");
+        int[] Arrays = new int[size];
+        for (int i = 0; i < Arrays.length; i++) {
+            Arrays[i] = (int) (Math.random() * 90 + 10);
+            System.out.print(Arrays[i] + " ");
+            if ((i + 1) % 20 == 0) System.out.println();
+        }
+    }
+}
+//Script Easy: /Scanner /If|Else /Arrays /For /Math.random();
