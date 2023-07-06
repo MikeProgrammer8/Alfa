@@ -1,0 +1,19 @@
+    public static void main(String[] args) {
+        Scanner scanCalculator = new Scanner(System.in);
+        System.out.println("Enter int x: ");
+        double x = scanCalculator.nextDouble();
+        System.out.println("Enter int operation |*| |/| |+| |-| |r| |s|");
+        char command = scanCalculator.next().charAt(0);
+        System.out.println("Enter int y: ");
+        double y = scanCalculator.nextDouble();
+        System.out.println("Result: ");
+        if (command == '*') System.out.println(x*y);
+        else if (command == '/') System.out.println(x/y);
+        else if (command == '+') System.out.println(x+y);
+        else if (command == '-') System.out.println(x-y);
+        else if (command == 'r') System.out.println(Math.sqrt(x));
+        else if (command == 's') System.out.println(x*x);
+        else System.out.println("Not found operation!");
+    }
+}
+//Script Easy: //Calculator /Scanner /If|Else /Math.sqrt();
