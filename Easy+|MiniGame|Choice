@@ -1,0 +1,76 @@
+package GitHub;
+|
+import java.util.Scanner;
+
+public class Choice {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter: [one] [two] [three]");
+        String choice = scan.nextLine();
+        switch (choice) {
+            case "one" -> System.out.println("Command [one]" + "\nEnter size of Collection.Arrays: ");
+            case "two" -> System.out.println("Command [two]" + "\nEnter Terminal: " + "Enter Commands: [Settings] [Upgrade]");
+            case "three" -> System.out.println("Command [three]" + "\nCalculator:" + "Enter code[4321]");
+            default -> {
+                System.out.println("Not found command!");
+                return;
+            }
+        }
+        switch (choice) {
+            case "one" -> {
+                int size = scan.nextInt();
+                System.out.println("Result Collection.Arrays:");
+                int[] IntArrays = new int[size];
+                for (int i = 0; i < size; i++) {
+                    IntArrays[i] = (int) (Math.random() * 10);
+                    System.out.print(IntArrays[i] + " ");
+                    if ((i + 1) % 20 == 0) System.out.println();
+                }
+            }
+            case "two" -> {
+                String command = scan.nextLine();
+                switch (command) {
+                    case "Settings" -> {
+                        System.out.println("|Version| " + Math.round(Math.random()* 100) + "\n|Development|...");
+                        return;
+                    }
+                    case "Upgrade" -> System.out.println("Upgrade Terminal..." + "\nEnter code[1234]");
+                    default -> {
+                        System.out.println("Not found command!");
+                        return;
+                    }
+                }
+                String code = scan.nextLine();
+                if (code.equals("1234")) {
+                    System.out.println("""
+                            |Great|
+                            |OPEN FILE|
+                            Bug:(""");
+                } else System.out.println("|Code Incorrect|");
+            }
+            case "three" -> {
+                String code = scan.nextLine();
+                if (code.equals("4321")) {
+                    System.out.println("|Great|");
+                } else {
+                    System.out.println("|Code Incorrect|");
+                    return;
+                }
+                System.out.println("Enter x:");
+                double x = scan.nextDouble();
+                System.out.println("Enter operation:");
+                char operation = scan.next().charAt(0);
+                System.out.println("Enter y:");
+                double y = scan.nextDouble();
+                if (operation == '+') System.out.println("Result: " + (x + y));
+                else if (operation == '-') System.out.println("Result: " + (x - y));
+                else if (operation == '*') System.out.println("Result: " + (x * y));
+                else if (operation == '/') System.out.println("Result: " + (x / y));
+                else if (operation == 's') System.out.println("Result: " + (x * x));
+                else if (operation == 'r') System.out.println("Result: " + Math.sqrt(x));
+                else System.out.println("Not Found operation!");
+            }
+        }
+    }
+}
+//Script Easy+: //Calculator /Scanner /If|Else /For /Switch|Case  /return; /Math.random(); /Math.sqrt(); 
