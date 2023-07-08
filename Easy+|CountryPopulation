@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+//Create -> MikeProgrammer8
+
+public class Alfa {
+    public static void main(String[] args) {
+        Scanner scanFor = new Scanner(System.in);
+        System.out.println("Enter name country: ");
+        scanFor.nextLine();
+        System.out.println("Enter the population size: Min |1000| Max |1.500.000.000|");
+        int PopulationCountry = scanFor.nextInt();
+        if ((PopulationCountry > 1500000000) || (PopulationCountry < 1000)) {
+            System.out.println("Population limit exceeded!");
+            return;
+        }
+        System.out.println("Enter the average birth rate of the population in the country: Min |10| Max |10.000.000|");
+        int BornCountry = scanFor.nextInt();
+        if ((BornCountry > 10000000) || (BornCountry < 10)) {
+            System.out.println("Born limit exceeded!");
+            return;
+        }
+        System.out.println("Enter the average annual death rate in the country Min |1| Max |1.000.000|");
+        int DeathCountry = scanFor.nextInt();
+        if ((DeathCountry > 10000000) || (DeathCountry < 1)) {
+            System.out.println("Death limit exceeded!");
+            return;
+        }
+        System.out.println("Enter how many years the cycle will last: Min |1| Max |1000|");
+        int YearsCountry = scanFor.nextInt();
+        if ((YearsCountry > 1000) || (YearsCountry < 1)) {
+            System.out.println("Years limit exceeded!");
+            return;
+        }
+        int PopulationCountryNew = PopulationCountry + ((BornCountry - DeathCountry) * YearsCountry);
+        System.out.println((("Result: " + "((" + PopulationCountry + "+" + BornCountry + "-" + DeathCountry + ")" + "*" + YearsCountry + ")")));
+        System.out.println("= " + PopulationCountryNew);
+    }
+}
+//Script Easy+: /Scanner /If|Else /Int|String
+//Create -> MikeProgrammer8
