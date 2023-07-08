@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class DoubleArrayMinMaxAvg {
+
+//Create -> MikeProgrammer8 /Java
+    public static void main(String[] args) {
+        Scanner scanArray = new Scanner(System.in);
+        System.out.println("Enter size of Arrays: ");
+        int sizeArray = scanArray.nextInt();
+        double[] array = new double[sizeArray];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 100);
+            System.out.print(array[i] + " ");
+            if ((i + 1) % 20 == 0) System.out.println();
+        }
+            double minArray = array[0];
+            double maxArray = array[0];
+            double avgArray = array[0];
+        for (double element : array) {
+            if (maxArray < element)
+                maxArray = element;
+            if (minArray > element)
+                minArray = element;
+        }
+            System.out.println("Min array: " + minArray);
+            System.out.println("Max array: " + maxArray);
+            System.out.println("Avg array: " + avgArray);
+        }
+    }
+//Script Easy+: /Scanner /Arrays|Min|Max|Avg| /Double /For /if
+//Create -> MikeProgrammer8 /Java
