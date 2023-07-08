@@ -1,3 +1,5 @@
+package GitHub;
+
 import java.util.Scanner;
 
 public class DoubleArrayMinMaxAvg {
