@@ -2,6 +2,7 @@ package GitHub;
 
 import java.util.Scanner;
 
+//Create -> MikeProgrammer8
 public class Alfa {
     public static void main(String[] args) {
         Scanner scanAge = new Scanner(System.in);
@@ -21,3 +22,4 @@ public class Alfa {
     }
 }
 //Script Easy+: /Scanner /Switch|Case
+//Create -> MikeProgrammer8
