@@ -19,7 +19,7 @@ public class Alfa {
                     "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" -> System.out.println("Old");
             default -> System.out.println("Not found age! =(");
         }
-    }
+    } 
 }
 //Script Easy+: /Scanner /Switch|Case
 //Create -> MikeProgrammer8
