@@ -1,4 +1,8 @@
-    public static void main(String[] args) {
+package GitHub;
+
+import java.util.Scanner;
+
+public static void main(String[] args) {
         Scanner scanCalculator = new Scanner(System.in);
         System.out.println("Enter int x: ");
         double x = scanCalculator.nextDouble();
