@@ -1,0 +1,69 @@
+package GitHub;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+//Create -> MikeProgrammer8 /Java
+public class Alfa {
+    public static void main(String[] args) throws Exception {
+        Scanner scanArray = new Scanner(System.in);
+        System.out.println("Enter size of Arrays: Min[3] Max[100]");
+        int sizeArray = scanArray.nextInt();
+        if (sizeArray < 3 || sizeArray > 100) {
+            throw new Exception("Exiting the array! =(");
+        }
+        int[] intArray = new int[sizeArray];
+        for (int i = 0; i < intArray.length; i++) {
+            intArray[i] = (int) (Math.random() * 100);
+            System.out.print(intArray[i] + " ");
+            if ((i + 1) % 20 == 0) System.out.println();
+        }
+        Scanner scanOperation = new Scanner(System.in);
+        System.out.println("\nOperation: |SortArray| |Min/Max/Avg| |ScannerArray|");
+        String operation = scanOperation.nextLine();
+        switch (operation) {
+            case "|SortArray|", "SortArray", "Sort", "S" -> {
+                System.out.println("SortArray Result: ");
+                Arrays.sort(intArray);
+                for (int i = 0; i < intArray.length; i++) {
+                    System.out.print(intArray[i] + " ");
+                    if ((i + 1) % 20 == 0) System.out.println();
+                }
+            }
+            case "|Min/Max/Avg|", "Min/Max/Avg", "Min", "Max", "Avg", "M" -> {
+                System.out.println("Min/Max/Avg Result: ");
+                int minArray = intArray[0];
+                int avgArray = intArray[0];
+                int maxArray = intArray[0];
+                for (int element : intArray) {
+                    if (maxArray < element)
+                        maxArray = element;
+                    if (minArray > element)
+                        minArray = element;
+                }
+                System.out.println("Min Array -> " + minArray);
+                System.out.println("Avg Array -> " + avgArray);
+                System.out.println("Max Array -> " + maxArray);
+            }
+            case "|ScannerArray|", "ScannerArray", "Scanner", "Sc" -> {
+                Scanner scanArrayDouble = new Scanner(System.in); //Scanner.
+                System.out.println("Enter record: |Max 50| |End -0|");
+                double[] ArDouble = new double[50];
+                int i = 0;
+                while (i < 50) {
+                    ArDouble[i] = scanArrayDouble.nextDouble();
+                    if (ArDouble[i] == -0) break;
+                    i++;
+                }
+                System.out.println("Your record values: ");
+                for (int j = 0; j < i; j++) {
+                    System.out.print(ArDouble[j] + " / ");
+                }
+            }
+            default ->
+               throw new Exception("Not found operation! =(");
+        }
+    }
+}
+//Script Easy+: /Scanner /Arrays|Min|Avg|Max|Sort|Record /If|Else|Switch|Case /For /While /Throw new Exception /Int|String|Double
+//Create -> MikeProgrammer8 /Java
