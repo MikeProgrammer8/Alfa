@@ -1,0 +1,32 @@
+package GitHub;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
+public class Alfa {
+
+//Create -> MikeProgrammer8 |java|
+    public static void main(String[] args) throws Exception {
+        //LocalDate -> year-month-day
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate);
+        //Date -> |Day of the week| |Mouth| |Time -> hour:minute:second| |City| |year|
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.WEEK_OF_MONTH, 1);//+1week -> +day(7)
+        System.out.println(calendar.getTime());
+        calendar.add(Calendar.WEEK_OF_YEAR, 100);//+weeks and +years(2) + day
+        System.out.println(calendar.getTime());
+        calendar.add(Calendar.DAY_OF_WEEK_IN_MONTH, 100);//+weeks and +years(5)
+        //SimpleDateFormat -> settings
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy HH:mm");
+        Date newDate = simpleDateFormat.parse("05/12/1985 05:22");
+        System.out.println(newDate);
+    }
+}
+
+//Script Easy+: /Date /LocalDate /SimpleDateFormat /Calendar
+//Create -> MikeProgrammer8 |java|
