@@ -1,0 +1,86 @@
+package GitHub;
+
+//Class MainMyArray!
+//Create -> MikeProgrammer8 /Java
+public class MainMyArray {
+    public static void main(String[] args) throws Exception {
+        MyArray myArray = new MyArray();
+        myArray.addArray();
+    }
+}
+
+
+//Class MyArray!
+//Create -> MikeProgrammer8 /Java
+
+import java.util.Scanner;
+
+public class MyArray {
+    public void addArray() throws Exception {
+        Scanner scanChoiceAddArray = new Scanner(System.in); //Scanner Choice Array
+        System.out.println("Create Array: |MathRandom| |ICreate|");
+        String choice = scanChoiceAddArray.nextLine();
+        switch (choice) {
+            case "|MathRandom|", "MathRandom", "Math", "M":
+                Scanner scanAddMath = new Scanner(System.in); //Scanner int-Array-Create(MathRandom)
+                System.out.println("Enter size of Arrays: ");
+                int size = scanAddMath.nextInt();
+                if (size > 1000 || size < 1) throw new Exception("!Max[1000] Min[1]!");
+                int[] intArray = new int[size];
+                for (int i = 0; i < intArray.length; i++) {
+                    intArray[i] = (int) (Math.random() * 90 + 10);
+                    System.out.print(" [ " + intArray[i] + " ] ");
+                    if ((i + 1) % 20 == 0) System.out.println();
+                }
+                break;
+            case "|ICreate|", "ICreate", "Create", "I":
+                Scanner scanDataType = new Scanner(System.in); //Scanner DataType
+                System.out.println("Select the data type: |int| |double|");
+                String DataType = scanDataType.nextLine();
+                if (DataType.equals("int") || DataType.equals("i")) {
+                    Scanner sizeIntCreate = new Scanner(System.in); //Scanner int-Array-Create
+                    System.out.println("Create Array[int]" + "\nEnter size of Array: ");
+                    int sizeICreateInt = sizeIntCreate.nextInt();
+                    Scanner scanWhileI = new Scanner(System.in);//Scanner While-int
+                    if (sizeICreateInt > 100000 || sizeICreateInt < 1) throw new Exception("!Max[100.000] Min[1]!");
+                    System.out.println("Enter Arrays: ");
+                    int[] ArIntCr = new int[sizeICreateInt];
+                    int i = scanWhileI.nextInt();
+                    while (i < sizeICreateInt) {
+                        ArIntCr[i] = scanWhileI.nextInt();
+                        if (ArIntCr[i] == -0) break;
+                        i++;
+                    }
+                    System.out.println("Result Array: ");
+                    for (int j = 0; j < i; j++) {
+                        System.out.print(" [ " + ArIntCr[j] + " ] ");
+                    }
+                    return;
+                }
+                if (DataType.equals("double") || DataType.equals("d")) {
+                    Scanner sizeDoubleCreate = new Scanner(System.in); //Scanner Double-Array-Create
+                    System.out.println("Create Array[double]" + "\nEnter size of Array: ");
+                    int sizeICreateDouble = sizeDoubleCreate.nextInt();
+                    Scanner scanWhileI2 = new Scanner(System.in);
+                    if (sizeICreateDouble > 100000 || sizeICreateDouble < 1)
+                        throw new Exception("!Max[100.000] Min[1]!");
+                    System.out.println("Enter Arrays: ");
+                    double[] ArIntCr = new double[sizeICreateDouble];
+                    int i = scanWhileI2.nextInt();//Scanner While-double
+                    while (i < sizeICreateDouble) {
+                        ArIntCr[i] = scanWhileI2.nextInt();
+                        if (ArIntCr[i] == -0) break;
+                        i++;
+                    }
+                    System.out.println("Result Array: ");
+                    for (int j = 0; j < i; j++) {
+                        System.out.print(" [ " + ArIntCr[j] + " ] ");
+                    }
+                    break;
+                }
+            default : throw new Exception("Not Found choice!");
+        }
+    }
+}
+//OOP -> /Public/ /Throw new Exception(); /If/Else /Switch/Case  /Break/Return/Default /Scanner /For/While /Array /int/double/String
+//Create -> MikeProgrammer8 /Java
