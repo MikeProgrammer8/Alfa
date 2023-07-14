@@ -1,0 +1,57 @@
+package GitHub;
+
+import java.util.*;
+import java.util.List;
+import java.util.stream.Stream;
+
+//Create -> MikeProgrammer8 /Java
+public class lambdaExpressions {
+    public static void main(String[] args) {
+        System.out.println("1)ArrayList<Integer(filter)> -> ");
+        List<Integer> arrayListInt = new ArrayList<>(); //Collection ArrayList<>();
+        Collections.addAll(arrayListInt, -300, 100, 200, -100, -500, 300, -200, -400, 400, 500);
+        arrayListInt.stream().filter(n -> n > 0).sorted().forEach(n -> System.out.print(n + ", ")); //Stream
+        System.out.println("\n" + "2)ArrayList<String(contains)> -> ");
+
+        ArrayList<String> arrayListStr = new ArrayList<>(); //Collection ArrayList<>();
+        Collections.addAll(arrayListStr, "1)", "73", "2)", "27", "3)", "47", "75", "4)", "71", "5)");
+        arrayListStr.stream().filter(s -> s.contains(")")).sorted().forEach(s -> System.out.print(s + ", ")); //Stream
+        System.out.println("\n" + "3)ArrayList<(concat)> -> ");
+
+        Stream.concat(arrayListStr.stream().filter(s -> s.contains(")")).sorted(), //Stream
+                arrayListInt.stream().filter(n -> n < 0).sorted()).forEach(v -> System.out.print(v + " / ")); //Stream
+        System.out.println("\n" + "4)HashSet<Integer(findAny)> -> ");
+
+        HashSet<Integer> hashSet = new HashSet<>();  //Collection HashSet<>();
+        Collections.addAll(hashSet, 100, -200, -200, 200, 1000, -100, 300, -200, 500, 300, 800, -100, 1000, 500);
+        hashSet.stream().findAny().stream().sorted().forEach(n -> System.out.print("[" + n + "] ")); //Stream
+        System.out.println("\n" + "5)HashSet<String(takeWhile)> -> ");
+
+        Set<String> hashSetStrTakeWhile = new HashSet<>(); //Collection HashSet<>();
+        Collections.addAll(hashSetStrTakeWhile, "One", "Two", "Three", "Four", "Five");
+        hashSetStrTakeWhile.stream().takeWhile(n -> n.contains("v")).forEach(n -> System.out.print(n + " | ")); //Stream
+        System.out.println("\n" + "6)HashSet<String(dropWhile)> -> ");
+
+        HashSet<String> hashSetStrDropWhile = new HashSet<>(); //Collection HashSet<>();
+        Collections.addAll(hashSetStrDropWhile, "One", "Two", "Three", "Four", "Five");
+        hashSetStrDropWhile.stream().dropWhile(n -> n.contains("v")).forEach(n -> System.out.print(n + " | ")); //Stream
+        System.out.println("\n" + "7)ArrayDeque<Integer(distinct)> -> ");
+
+        Deque<Integer> dequeInt = new ArrayDeque<>(); //Collection Deque<>();
+        Collections.addAll(dequeInt, 20, 10, 20, 60, 20, 30, 50, 80, 70, 30, 40, 80, 70, 90, 50, 30, 40);
+        dequeInt.stream().distinct().sorted().forEach(n -> System.out.print(n + " ")); //Stream
+        System.out.println("\n" + "8)ArrayDeque<String(length)> -> ");
+
+        Deque<String> dequeStr = new ArrayDeque<>(); //Collection Deque<>();
+        Collections.addAll(dequeStr, "One", "Two", "Three", "Four", "Five");
+        dequeStr.forEach(n -> System.out.print(n + "-" + n.length() + " ")); //Stream
+        System.out.println("\n" + "9)ArrayDeque<String(length)> -> ");
+
+        Deque<String> dequeStr2 = new ArrayDeque<>(); //Collection Deque<>();
+        Collections.addAll(dequeStr2, "One", "Two", "Three", "Four", "Five"); 
+        dequeStr2.stream().map(s -> s.substring(s.indexOf(' ')+1)).forEach(System.out::print); //Stream
+
+    }
+}
+//ArrayList<>(); /Filter /Contains /Concat //HashSet<>(); /findAny /takeWhile /dropWhile //Deque<>(); /distinct /length /Substring
+//Create -> MikeProgrammer8 /Java
