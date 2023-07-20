@@ -1,0 +1,92 @@
+//CLASS -> MainCountry
+//Create -> MikeProgrammer8
+package GitHub;
+
+public class MainCountry {
+    public static void main(String[] args) throws Exception {
+        Country country = new Country(); //Create
+        country.StartCountry(); //Function
+        country.NameCountry(); //Test Function
+    }
+}
+
+//CLASS -> Country
+//Create -> MikeProgrammer8
+package GitHub;
+
+import java.util.Scanner;
+
+public class Country {
+    private int PopulationC;
+    private int BornC;
+    private int DeathC;
+    private int CycleTimeC;
+    private String NameC;
+
+    //Start
+    public void StartCountry() throws Exception {
+        NameCountry();
+        PopulationCountry();
+        BornCountry();
+        DeathCountry();
+        CycleTimeCountry();
+        FormulaCountry();
+    }
+
+    //Name
+    public void NameCountry() throws Exception {
+        Scanner scNameC = new Scanner(System.in);
+        System.out.println("Enter name country: Min|3| Max|100|");
+        NameC = scNameC.nextLine();
+        if (NameC.length() > 100 || NameC.length() < 3) {
+            throw new Exception("!Name limit exceeded!");
+        }
+    }
+
+    //Population
+    public void PopulationCountry() throws Exception {
+        Scanner sPopulationC = new Scanner(System.in);
+        System.out.println("Enter the population size: Min |1000| Max |1.500.000.000|");
+        PopulationC = sPopulationC.nextInt();
+        if ((PopulationC > 1500000000) || (PopulationC < 1000))
+            throw new Exception("!Population limit exceeded!");
+        }
+
+
+    //Born
+    public void BornCountry() throws Exception {
+        Scanner sBirthC = new Scanner(System.in);
+        System.out.println("Enter the average birth rate of the population in the country: Min |10| Max |10.000.000|");
+        BornC = sBirthC.nextInt();
+        if ((BornC > 10000000) || (BornC < 10))
+            throw new Exception("!Born limit exceeded!");
+        }
+
+    //Death
+    public void DeathCountry() throws Exception {
+        Scanner sDeathC = new Scanner(System.in);
+        System.out.println("Enter the average annual death rate in the country Min |1| Max |1.000.000|");
+        DeathC = sDeathC.nextInt();
+        if ((DeathC > 10000000) || (DeathC < 1))
+            throw new Exception("!Death limit exceeded!");
+        }
+
+
+    //CycleTime
+    public void CycleTimeCountry() throws Exception {
+        Scanner sCycleTimeC = new Scanner(System.in);
+        System.out.println("Enter how many years the cycle will last: Min |1| Max |100|");
+        CycleTimeC = sCycleTimeC.nextInt();
+        if ((CycleTimeC > 100) || (CycleTimeC < 1))
+            throw new Exception("!Years limit exceeded!");
+        }
+
+        //Formula
+        public void FormulaCountry() {
+            int PopulationCNew = PopulationC + ((BornC - DeathC) * CycleTimeC);
+            System.out.println((("Result: " + NameC + " = " + "((" + PopulationC + "+" + BornC + "-" + DeathC + ")" + "*" + CycleTimeC + ")")));
+            System.out.println("= " + PopulationCNew);
+        }
+    }
+//OOP -> /public|private /Void /IF /Throws Exception /Scanner
+//Create -> MikeProgrammer8|
