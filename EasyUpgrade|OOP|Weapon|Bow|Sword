@@ -1,0 +1,125 @@
+package GitHub;
+//CLASS -> WeaponMain
+//Create -> MikeProgrammer8|
+public class WeaponMain {
+    public static void main(String[] args) throws Exception {
+        Weapon weapon = new Weapon();
+        weapon.setWeight(5000);
+        weapon.getAllUpgrade(100, 300, 500);
+        Sword sword = new Sword();
+        sword.StartSword();
+        Bow bow = new Bow();
+        bow.StartBow();
+    }
+}
+
+
+
+//CLASS -> Bow
+package GitHub;
+//Create -> MikeProgrammer8|
+public class Bow extends Weapon{
+    public void StartBow(){
+        System.out.println("\nBow:");
+        Damage();
+        Speed();
+        Weight();
+        System.out.print("Bow:");
+        getAll();
+    }
+}
+
+
+
+//CLASS -> Sword
+package GitHub;
+//Create -> MikeProgrammer8|
+public class Sword extends Weapon{
+    public void StartSword(){
+        System.out.println("\nSword:");
+        Damage();
+        Speed();
+        Weight();
+        System.out.print("Sword");
+        getAll();
+    }
+}
+
+
+
+//CLASS -> Weapon
+package GitHub;
+//Create -> MikeProgrammer8|
+import java.util.Scanner;
+
+public class Weapon {
+    private int damage, speed, weight;
+
+    //Damage
+    public void Damage() {
+        Scanner scDamage = new Scanner(System.in);
+        System.out.println("Enter damage: Min[10] Max[100]");
+        damage = scDamage.nextInt();
+        if (damage > 100 || damage < 10) {
+            System.out.println("!damage > 100 || damage < 10!");
+            System.exit(1);
+        }
+    }
+
+    //Set
+    public void setDamage(int damage) throws Exception {
+        if (damage > 10000 || damage < 1) {
+            throw new Exception("!damage > 10.000 || damage < 1!");
+        } else System.out.println("DamageUpgrade -> " + damage);
+    }
+
+    //Speed
+    public void Speed() {
+        Scanner scSpeed = new Scanner(System.in);
+        System.out.println("Enter speed: Min[10] Max[100]");
+        speed = scSpeed.nextInt();
+        if (speed > 100 || speed < 10) {
+            System.out.println("!speed > 100 || speed < 10!");
+            System.exit(1);
+        }
+    }
+
+    //Set
+    public void setSpeed(int speed) throws Exception {
+        if (speed > 10000 || speed < 1) {
+            throw new Exception("!speed > 10.000 || speed < 1!");
+        } else System.out.println("SpeedUpgrade -> " + speed);
+    }
+
+    //Weight
+    public void Weight() {
+        Scanner scWeight = new Scanner(System.in);
+        System.out.println("Enter weight: Min[5] Max[50]");
+        weight = scWeight.nextInt();
+        if (weight > 50 || weight < 5) {
+            System.out.println("!weight > 50 || weight < 5!");
+            System.exit(1);
+        }
+    }
+
+    //Set
+    public void setWeight(int weight) throws Exception {
+        if (weight > 5000 || weight < 1) {
+            throw new Exception("!weight > 5000 || weight < 1!");
+        } else System.out.println("WeightUpgrade -> " + weight);
+    }
+
+    //getAllUpgradeNew -> new parameters
+    public void getAllUpgrade(int DAMAGE, int SPEED, int WEIGHT) throws Exception {
+        setDamage(DAMAGE);
+        setSpeed(SPEED);
+        setWeight(WEIGHT);
+        System.out.println("\nUpgradeALL -> " + " DAMAGE: " + DAMAGE + " SPEED: " + SPEED + " WEIGHT: " + WEIGHT);
+    }
+    //CLASS -> Damage/Speed/Weight
+    public void getAll(){
+        System.out.println(" -> " + " DAMAGE: " + damage + " SPEED: " + speed + " WEIGHT: " + weight);
+    }
+}
+//OOP -> /public|private /Void /IF /Throws Exception /Scanner
+//Create -> MikeProgrammer8|
