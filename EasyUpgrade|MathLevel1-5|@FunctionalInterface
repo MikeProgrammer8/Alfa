@@ -1,0 +1,67 @@
+package GitHub;
+
+import java.util.Scanner;
+//Create -> MikeProgrammer8
+//CLASS -> Math
+public class Math {
+    public static void main(String[] args) {
+        Algebra MathLevel;
+        MathLevel = (Level) -> {
+            Scanner scMath = new Scanner(System.in); //Scanner scMath
+            System.out.println("Start Level 1" + "\n 2 + 2 = |?|");
+            String Level1 = scMath.nextLine(); //Level1
+            if (Level1.equals("4")) {
+                System.out.println("""         
+                        Yes:D
+                        Start Level 2
+                         10 * 2 = |?|""");
+            } else return "NoD:" + "\nAnswer -> 4";
+            String Level2 = scMath.nextLine(); //Level2
+            if (Level2.equals("20")) {
+                System.out.println("""
+                        Yes:D
+                        Start Level 3
+                         500 / 10 = |?|""");
+            } else return "NoD:" + "\nAnswer -> 20";
+            String Level3 = scMath.nextLine(); //Level3
+            if (Level3.equals("50")) {
+                System.out.println("""
+                        Yes:D
+                        Start Level 4
+                         (25 + 25) / 5 = |?|""");
+            } else return "NoD:" + "\nAnswer -> 50";
+            String Level4 = scMath.nextLine(); //Level4
+            if (Level4.equals("10")) {
+                System.out.println("""
+                        Yes:D
+                        Start Level 5
+                         (50 * 10) / 2 = |?|""");
+            } else return "NoD:" + "\nAnswer -> 10";
+            String Level5 = scMath.nextLine(); //Level5
+            if (Level5.equals("250")) {
+                System.out.println("GoodWork:D");
+            } else return "NoD:" + "\nAnswer -> 250";
+
+            return "The End!";
+        };
+        Scanner scStart = new Scanner(System.in); //Scanner scStart
+        System.out.println("Enter |Start| -> ");
+        String start = scStart.nextLine();
+        if (start.equals("Start")) {
+            String StartLevel = MathLevel.MathLevel(start);
+            System.out.println(StartLevel);
+        } else System.exit(1);
+    }
+}
+
+
+
+package GitHub;
+//INTERFACE -> Algebra
+@FunctionalInterface
+public interface Algebra {
+    String MathLevel(String Level);
+}
+
+//OOP -> |Class/Interface| |@FunctionalInterface|
+//Create -> MikeProgrammer8
