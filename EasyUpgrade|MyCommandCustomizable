@@ -1,0 +1,50 @@
+package GitHub;
+//Create -> MikeProgrammer8
+public class MyCommand<E> {
+    private int index = 1;
+    int CAPACITY;
+    //Constructor
+    public MyCommand(int CAPACITY){ //Constructor
+        this.CAPACITY = CAPACITY;
+    }
+    //GetSize
+    public void getSize(){ //Size
+            System.out.println("Size: " + index);
+        }
+    //GetCapacity
+    public void getCapacity(){ //Capacity
+        System.out.println("Capacity: " + CAPACITY);
+    }
+    //AddElement
+    public void addElement(E Element){ //Add
+        if (index > CAPACITY){
+            System.err.println("MyCommand is full!");
+            System.exit(-1);
+        }else System.out.println("Element: " + Element + " -> [" + index + "]");
+        index++;
+    }
+    //DeleteElement
+    public void deleteElement(E Element, int Index){ //Delete
+        if (CAPACITY < Index){
+            System.err.println("Index is empty! -> [" + Index + "]");
+            System.exit(-2);
+        }else  System.out.println("NewElement: " + Element + " -> ["+ Index + "]");
+        index--;
+    }
+    //Main
+    public static void main(String[] args) {
+        MyCommand<String> myCommand = new MyCommand<>(5);
+        myCommand.addElement("One"); //Add
+        myCommand.addElement("Two"); //Add
+        myCommand.addElement("Three"); //Add
+        myCommand.addElement("Four"); //Add
+        myCommand.addElement("Five"); //Add
+        // myCommand.addElement("One"); //MyCommand is full!
+        myCommand.deleteElement("NewTwo", 1); //Delete
+        // myCommand.deleteElement("NewTwo", 100000000); // Index is empty!
+        myCommand.getCapacity();
+        myCommand.getSize();
+    }
+}
+//|Collection|Generic| Commands ->  |GetSize|GetCapacity|AddElement|DeleteElement|
+//Create -> MikeProgrammer8
