@@ -1,0 +1,77 @@
+    package GitHub;
+    //Create -> MikeProgrammer8 /Java
+    //Class -> KeyGenerate
+    public class KeyGenerate<K>{
+        K Key;
+        private int index = 0;
+        private final int CAPACITY;
+    
+        //Constructor+
+        public KeyGenerate(int CAPACITY) {
+            this.CAPACITY = CAPACITY;
+            Key = null;
+        }
+    
+        //GetCapacity+
+        public void getCapacity() {
+            if (CAPACITY > index) {
+                int FreeIndex = (CAPACITY - (index)); //FreeIndex
+                System.out.println("Capacity: " + index + " FreeSpace -> [" + FreeIndex + "]");
+            } else System.out.println("FullCapacity: " + index);
+        }
+    
+        //GetSize+
+        public void getSize() {
+            int FreeIndex = (CAPACITY - (index)); //FreeIndex
+            int sizeElement = (CAPACITY - FreeIndex + 1); //SizeElement
+            System.out.println("SizeGk: " + index);
+            for (int index = 1; index < sizeElement; index++) {
+                System.out.print("informationGK" + " [" + index + "] -> ");
+            }
+            System.out.println();
+        }
+    
+        //Contains+
+        public void containsKey(int Index) {
+            if (Index > CAPACITY) {
+                System.err.println("False -> [Index[" + Index + "]]");
+                System.exit(-1);
+            } else System.out.println("True -> [Index[" + Index + "]]");
+        }
+        //Gk+
+        private void generateKey(K Key){
+            this.Key = Key;
+                index++;
+                if (CAPACITY < index) {
+                    System.err.println("KeyGenerate is full!");
+                    System.exit(-2);
+                } else System.out.println("Gk -> " + Key + " ind[" + index + "] ");
+        }
+        //DeletedGk
+        public void deletedGenerateKey(K NewKey, int Index){
+            if (CAPACITY < Index) {
+                System.err.println("Index come out of capacity! -> [" + Index + "] ");
+                System.exit(-3);
+            }else if (Index > index){
+                System.err.println("Index is empty! -> [" + Index + "] ");
+                System.exit(-3);
+            }else System.out.println("NewGK -> "+ NewKey + " ind[" + Index + "] ");
+        }
+        //Main+
+        public static void main(String[] args) {
+            KeyGenerate<Integer> keyGenerate = new KeyGenerate<>(10);
+            keyGenerate.generateKey(100); //add
+            keyGenerate.generateKey(200); //add
+            keyGenerate.generateKey(300); //add
+            keyGenerate.generateKey(400); //add
+            keyGenerate.generateKey(600); //add
+            keyGenerate.deletedGenerateKey(500, 5); //Key -> NewKey
+            keyGenerate.generateKey(600); //add
+            keyGenerate.getCapacity(); //Capacity
+            keyGenerate.getSize(); //Size
+            keyGenerate.containsKey(1); //True/False
+            //keyGenerate.containsKey(11); -> Index is Empty!
+        }
+    }
+//UpgradeEasy+|KeyGenerate|AddDeleted||Size|Capacity|Contains
+//Create -> MikeProgrammer8 /Java
