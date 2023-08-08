@@ -1,0 +1,154 @@
+package GitHub;
+
+import java.util.Scanner;
+//Create -> MikeProgrammer8 /Java
+//Class -> ServerGame
+public class ServerGame {
+    int CAPACITY;
+    int size = 1, damage, hp, speed;
+
+    //CreateYourPlayer
+    public void CreateYourPlayer() {
+        //CreateName
+        Scanner scName = new Scanner(System.in);
+        String NameCreate;
+        while (true) {
+            try {
+                System.out.println("Enter Name: ");
+                NameCreate = scName.nextLine();
+                if (NameCreate.length() >= 5) {
+                    if (NameCreate.length() <= 15) {
+                        break;
+                    }
+                }
+                System.err.println("Name length >= 5 or Name length <= 15" + " symbols -> [" + NameCreate.length() + "]");
+                System.out.println("Wrong input,try again!");
+            } catch (RuntimeException e) {
+                scName.nextLine();
+            }
+        }System.out.println("Your name -> " + NameCreate);
+        //CreateHp
+        Scanner scHp = new Scanner(System.in);
+        int HpCreate;
+        while (true) {
+            try {
+                System.out.println("Enter Hp: ");
+                HpCreate = scHp.nextInt();
+                if (HpCreate > 100) {
+                    if (HpCreate < 200) {
+                        break;
+                    }
+                }
+                System.err.println("Hp > 200 or Hp < 100");
+                System.out.println("Wrong input,try again!");
+            } catch (RuntimeException e) {
+
+                scHp.nextLine();
+            }
+        }System.out.println("Your Hp -> " + HpCreate);
+        //CreateDamage
+        Scanner scDamage = new Scanner(System.in);
+        int DamageCreate;
+        while (true) {
+            try {
+                System.out.println("Enter Damage: ");
+                DamageCreate = scDamage.nextInt();
+                if (DamageCreate > 100) {
+                    if (DamageCreate < 200) {
+                        break;
+                    }
+                }
+                System.err.println("Damage > 200 or Damage < 100");
+                System.out.println("Wrong input,try again!");
+            } catch (RuntimeException e) {
+                scDamage.nextLine();
+            }
+        }System.out.println("Your Damage -> " + DamageCreate);
+        //CreateSpeed
+        Scanner scSpeed = new Scanner(System.in);
+        int SpeedCreate;
+        while (true) {
+            try {
+                System.out.println("Enter Speed: ");
+                SpeedCreate = scSpeed.nextInt();
+                if (SpeedCreate > 100) {
+                    if (SpeedCreate < 200) {
+                        break;
+                    }
+                }
+                System.err.println("Speed > 200 or Speed < 100");
+                System.out.println("Wrong input,try again!");
+            } catch (RuntimeException e) {
+                scSpeed.nextLine();
+            }
+        }System.out.println("Your Speed -> " + SpeedCreate);
+        //CreateSize
+        Scanner scSize = new Scanner(System.in);
+        int SizeCreate;
+        while (true) {
+            try {
+                System.out.println("Enter size: ");
+                SizeCreate = scSize.nextInt();
+                if (SizeCreate <= CAPACITY) {
+                    if (SizeCreate > 0) {
+                        break;
+                    }
+                }
+                System.err.println("Size > Capacity Server!");
+                System.out.println("Wrong input,try again!");
+            } catch (RuntimeException e) {
+                scSize.nextLine();
+            }
+        }
+        System.out.println("Your Size -> " + SizeCreate);
+        System.out.println("[" + SizeCreate + "] "+ "СrName -> " + NameCreate + "СrHP -> " + HpCreate + " CrDAMAGE -> " + DamageCreate + " CrSPEED -> " + SpeedCreate);
+    }
+    //ServerStart
+    public void ServerStart(int CAPACITY){
+        this.CAPACITY = CAPACITY;
+        if (CAPACITY > 100){
+            System.err.println("!CAPACITY LIMIT IS 100!");
+            System.exit(-1);
+        }
+    }
+    //AddPlayer
+    public void addPlayer(int Hp,int Damage, int Speed){
+        this.hp = Hp;
+        this.damage = Damage;
+        this.speed = Speed;
+        if (size > CAPACITY){
+            System.err.println("Server is Full!");
+            System.exit(-2);
+        }else if (Hp > 200 || Hp < 100){
+            System.err.println("Hp > 200 or Hp < 100");
+            System.exit(-3);
+        }else if (Damage > 50 || Damage < 25){
+            System.err.println("Damage > 50 or Damage < 25");
+            System.exit(-3);
+        }else if (Speed > 10 || Speed < 5) {
+            System.err.println("Speed > 10 or Speed < 5");
+            System.exit(-3);
+        }else System.out.println("[" + size +"] Player -> Guest" + size + " HP -> " + hp + " DAMAGE -> " + damage + " SPEED -> " + speed + "km/h");
+        size++;
+    }
+    //NewPlayer
+    public void NewPlayer(int size, int newHp, int newDamage, int newSpeed){
+        this.size = size;
+        if (size > CAPACITY || size < 0){
+            System.err.println("Size is empty!");
+            System.exit(-4);
+        }else System.out.println("[" + size + "] Player -> Guest" + size + " NewHP -> " + newHp + " NewDAMAGE -> " + newDamage + " NewSPEED -> " + newSpeed + "km/h");
+    }
+    //Create -> MikeProgrammer8 /Java
+    //Class -> Main
+    public static void main(String[] args) {
+        ServerGame serverGame = new ServerGame();
+        serverGame.ServerStart(8);
+        serverGame.addPlayer(100, 30, 6); //AddPlayer
+        serverGame.addPlayer(150, 40, 7); //AddPlayer
+        serverGame.addPlayer(200, 50, 8); //AddPlayer
+        serverGame.NewPlayer(1,200, 40, 5); //AddPlayer
+        serverGame.CreateYourPlayer(); //CreatePlayer
+    }
+}
+//Create -> MikeProgrammer8 /Java
