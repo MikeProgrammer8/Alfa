@@ -1,0 +1,197 @@
+package GitHub;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+//Create -> MikeProgrammer8 |java|
+public class TimerTest {
+    static int CountryPopulation = 100;
+
+    //GameStart
+    public void GameStart() {
+        //LocalDate
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate);
+        Scanner scName = new Scanner(System.in);
+        Scanner scChoiceName = new Scanner(System.in);
+        System.out.println("TimerGame Start - - - >" + "\n|RandomNickname| or |Create it yourself|");
+        String nickname = scChoiceName.nextLine();
+        switch (nickname) {
+            //RandomNickname->
+            case "|RandomNickname|", "RandomNickname", "Random", "Nickname", "1" -> {
+                Scanner scChoiceMathNickname = new Scanner(System.in);
+                System.out.println("Timer 120 seconds" + "\nEnterCommand -> |Append|, |Reverse|,|Insert| or |length|");
+                String choiceMathNickname = scChoiceMathNickname.nextLine();
+                switch (choiceMathNickname) {
+                    //Append->
+                    case "|Append|", "Append", "1" -> {
+                        String str = "Player1";
+                        String str0 = "Plr0";
+                        StringBuilder stringBuilder = new StringBuilder(str);
+                        stringBuilder.deleteCharAt(4);
+                        System.out.println("Your name -> " + stringBuilder.append(str0));
+                    }
+                    //Reverse
+                    case "|Reverse|", "Reverse", "2" -> {
+                        String str1 = "Player2";
+                        StringBuilder stringBuilder1 = new StringBuilder(str1);
+                        stringBuilder1.deleteCharAt(3);
+                        System.out.println("Your name -> " + stringBuilder1.reverse());
+                    }
+                    //Insert->
+                    case "|Insert|", "Insert", "3" -> {
+                        String str2 = "Player3";
+                        StringBuilder stringBuilder2 = new StringBuilder(str2);
+                        stringBuilder2.deleteCharAt(2);
+                        stringBuilder2.insert(2, 4);
+                        System.out.println("Your name -> " + stringBuilder2.insert(2, 4) + str2 + stringBuilder2.delete(1, 2));
+                    }
+                    //length->
+                    default -> {
+                        String str3 = "Player4";
+                        StringBuilder stringBuilder3 = new StringBuilder(str3);
+                        stringBuilder3.deleteCharAt(1);
+                        System.out.println("Your name -> " + stringBuilder3.delete(3, 5) + str3 + stringBuilder3.length());
+                    }
+                }
+            }
+            //Create it yourself->
+            case "|Create it yourself|", "Create it yourself", "Create", "Yourself", "2" -> {
+                while (true) {
+                    try {
+                        System.out.println("Enter Name: ");
+                        nickname = scName.nextLine();
+                        if (nickname.length() >= 5) {
+                            if (nickname.length() <= 15) {
+                                break;
+                            }
+                        }
+                        System.err.println("Name length >= 5 or Name length <= 15" + " symbols -> [" + nickname.length() + "]");
+                        System.out.println("Wrong input,try again!");
+                    } catch (RuntimeException e) {
+                        scName.nextLine();
+                    }
+                }
+                System.out.println("Your name -> " + nickname);
+            }
+            default -> System.out.println("Your name ->  Guest_0");
+        }
+    }
+
+    //Start
+    public void Start() {
+        Scanner scStart = new Scanner(System.in);
+        String strStart;
+        while (true)
+            try {
+                System.out.println("Enter |Start|");
+                strStart = scStart.nextLine();
+                if (strStart.equals("Start")) {
+                    break;
+                }
+                System.err.println("Enter -> Start");
+                System.out.println("Wrong input,try again!");
+            } catch (RuntimeException e) {
+                scStart.nextLine();
+            }
+        System.out.println("Game - - -> " + strStart + "...");
+    }
+
+    //timerTaskBuildingH1
+    static TimerTask timerTaskBuildingH1 = new TimerTask() {
+        @Override
+        public void run() {
+            Scanner scBuildH1 = new Scanner(System.in);
+            String BuildingHouse1;
+            while (true) {
+                try {
+                    System.out.println("Enter -> |Building House1|");
+                    BuildingHouse1 = scBuildH1.nextLine();
+                    if (BuildingHouse1.equals("Building House1")) {
+                        System.out.println("House Building...");
+                        break;
+                    }
+                    System.err.println("Enter -> Building House1");
+                    System.out.println("Wrong input,try again!");
+                } catch (RuntimeException e) {
+                    scBuildH1.nextLine();
+                }
+            }
+        }
+    };
+    //timerTaskBuildingH2
+    static TimerTask timerTaskBuildingH2 = new TimerTask() {
+        @Override
+        public void run() {
+            Scanner scBuildH2 = new Scanner(System.in);
+            System.out.println("Population Country -> " + (CountryPopulation + 10));
+            System.out.println("|HouseUpgrade| or |BuildingHouse2|");
+            String BuildingChoice1 = scBuildH2.nextLine();
+            switch (BuildingChoice1) {
+                case "|HouseUpgrade|", "HouseUpgrade", "Upgrade", "Upg", "1" -> {
+                    System.out.println("House Upgrade...");
+                    CountryPopulation += 25;
+                    System.out.println("Population Country -> " + CountryPopulation);
+                }
+                case "|BuildingHouse2|", "BuildingHouse2", "Building", "House2", "2" -> {
+                    System.out.println("House Building...");
+                    int CountryPopulation2 = CountryPopulation += 10;
+                    System.out.println("Population Country -> " + CountryPopulation2);
+                }
+                default -> System.out.println("Population Country -> " + CountryPopulation);
+            }
+        }
+    };
+    //timerTaskBuildingH3
+    static TimerTask timerTaskBuildingH3 = new TimerTask() {
+        @Override
+        public void run() {
+            Scanner scChoiceCountryH3 = new Scanner(System.in);
+            System.out.println("Choose a result for your country -> |1)| -> Declare war on a neighboring State |2)| -> Construction of buildings");
+            String choiceCountryH3 = scChoiceCountryH3.nextLine();
+            switch (choiceCountryH3) {
+                //1)
+                case "Declare war on a neighboring State", "1)", "1" -> {
+                    if (CountryPopulation > 120) {
+                        System.out.println("Your Country -> Winner!" + "Country population = " + (CountryPopulation - 25) + 100);
+                    } else
+                        System.out.println("Your Country -> Defeat" + "Country population = " + (CountryPopulation == 0));
+                }
+                //2)
+                case "Construction of buildings", "2)", "2" -> {
+                    //StringBuffer->
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("The population ");
+                    stringBuffer.append("of the country ");
+                    stringBuffer.append("increases by 50% annually3");
+                    stringBuffer.deleteCharAt(56);
+                    System.out.println(stringBuffer);
+                }
+                default -> {
+                    System.out.println("Population Country -> " + CountryPopulation);
+                    System.exit(0);
+                }
+            }
+        }
+    };
+
+    //Main
+    public static void main(String[] args) {
+        //TimerTest
+        TimerTest betTest = new TimerTest();
+        betTest.GameStart();
+        betTest.Start();
+        //Timer
+        Timer timer = new Timer();
+        timer.schedule(timerTaskBuildingH1, 5000); //Mils 2000
+
+        Timer timer1 = new Timer();
+        timer1.schedule(timerTaskBuildingH2, 10000); //Mils 120000
+
+        Timer timer2 = new Timer();
+        timer2.schedule(timerTaskBuildingH3, 10000); //Mils 120000
+    }
+}
+//Create -> MikeProgrammer8 |java|
+//TimerTest, StringBuilder and  StringBuffer
